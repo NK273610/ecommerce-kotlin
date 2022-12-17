@@ -22,9 +22,9 @@ spring:
       ddl-auto: none
   datasource:
     driverClassName: org.postgresql.Driver
-    url: ${spring.datasource.orderecommercedb.url}
-    username: ${spring.datasource.orderecommercedb.name}
-    password: ${spring.datasource.orderecommercedb.password}
+    url: "jdbc:postgresql://localhost:5432/orderecommerce_db?currentSchema=public"
+    username: "orderecommerceuser"
+    password: "orderecommercepwd"
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 10

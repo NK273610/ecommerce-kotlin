@@ -28,7 +28,6 @@ services:
       - POSTGRES_USER=orderecommerceuser
       - POSTGRES_PASSWORD=orderecommercepwd
     volumes:
-      - ./setup.sql:/docker-entrypoint-initdb.d/setup.sql
       - postgres-data:/var/lib/postgres
     networks:
       - order-ecommerce-local

@@ -1,7 +1,6 @@
 #Runner
 FROM openjdk:17-alpine
 ADD build/libs/order-ecommerce.jar /app.jar
-#COPY setup.sql /docker-entrypoint-initdb.d/
 
 ENTRYPOINT java \
               $JAVA_OPTS \
