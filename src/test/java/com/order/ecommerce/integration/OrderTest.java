@@ -65,31 +65,6 @@ public class OrderTest extends AbstractIntegrationTest {
     }
 
     @Test
-    void updateOrder() throws Exception {
-        MvcResult result = mockMvc.perform( MockMvcRequestBuilders
-                .post("/api/v1/orders")
-                .content(JsonUtil.asJsonString(this.createOrderDto()))
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated())
-                .andReturn();
-
-        String orderId = JsonPath.read(result.getResponse().getContentAsString(), "$.orderId");
-
-        mockMvc.perform( MockMvcRequestBuilders
-                .patch("/api/v1/orders/"+orderId)
-                .content(JsonUtil.asJsonString(this.buildOrderUpdateDto(2.0,
-                        ShippingMode.PICKUP)))
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.shippingMode")
-                        .value(ShippingMode.PICKUP.name()));
-    }
-
-
-
-    @Test
     void testGetOrderById() throws Exception {
         MvcResult result = mockMvc.perform( MockMvcRequestBuilders
                 .post("/api/v1/orders")
