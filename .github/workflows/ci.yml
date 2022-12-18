@@ -45,4 +45,4 @@ jobs:
       run: docker build . --file Dockerfile --tag nk273610/ecommerce-java:$(date +%s)
 
     - name: Docker Push
-      run: docker push nk273610/ecommerce-java
+      run: docker push nk273610/ecommerce-java:$(date +%s)
